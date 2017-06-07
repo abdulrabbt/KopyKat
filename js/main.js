@@ -9,10 +9,18 @@ jQuery(function() {
 	console.log(lvlOneBoard);
 	var counter = 1;
 
+	var logicSeq = []; // Logic sequence
+	var userSeq = []; // User sequence
+
+
 	var logicBoardOne = [
         ["", ""],
         ["", ""]
     ];
+
+
+
+
 
 
     for (var i = 0; i < logicBoardOne.length; i++){
@@ -20,10 +28,33 @@ jQuery(function() {
     	lvlOneRow.addClass("row");
     	lvlOneBoard.append(lvlOneRow);
     	for (var j = 0; j < logicBoardOne[i].length; j++){
+    		var red = Math.floor(Math.random()*255);
+			var green = Math.floor(Math.random()*255);
+			var blue = Math.floor(Math.random()*255);
+
     		var lvlOneCell = $("<div>");
     		lvlOneCell.addClass("cell");
+    		// lvlOneCell.css("background-color", 'rgb(' + red + ", " + green + ", " + blue + ")" ); // rgb(255, 0, 0)
     		lvlOneCell.attr("id", "box" + counter);
-    		lvlOneBoard.append(lvlOneCell)
+    		lvlOneCell.click(function(event){
+    			logicSeq.push(Math.floor(Math.random()*4));
+    			console.log(logicSeq);
+    			userSeq.push(event.target.id);
+    			console.log(userSeq);
+    			console.table(logicBoardOne);
+    			// console.log("clicked!");
+    			$(this).addClass("toggle"); // not happening
+    			// let that = $(this);
+    		 	window.setTimeout( () => {
+    		 		// console.log('this insideofOnClick -> ',$(this));
+    				$(this).removeClass("toggle");
+    		 		// console.log('removed toggle');
+    		 		// console.log($(this));
+    			},500);
+    		});
+    		lvlOneBoard.append(lvlOneCell);
+
+
 
 
 

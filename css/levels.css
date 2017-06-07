@@ -19,9 +19,12 @@
 /*    padding: 5px;*/
     height: 150px;
     width: 150px;
-    background-color: white;
+    background-color: black;
+    transition: background-color 0.5s ease-in-out;
     border: 1px solid black;
 }
+
+
 
 .row {
 /*    padding: 5px;*/
@@ -31,18 +34,6 @@
 /*    border: 1px solid black;*/
 }
 
-#box1{
-	background-color: deeppink;
-}
-
-#box2{
-	background-color: cyan;
-}
-
-#box3{
-	background-color: yellow;
-}
-
-#box4{
-	background-color: lawngreen;
+.toggle{
+	background-color: white;
 }
