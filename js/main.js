@@ -38,18 +38,18 @@ jQuery(function() {
     		lvlOneCell.attr("id", "box" + counter);
     		lvlOneCell.click(function(event){
     			logicSeq.push(Math.floor(Math.random()*4));
-    			console.log(logicSeq);
+    			// console.log(logicSeq);
     			userSeq.push(event.target.id);
-    			console.log(userSeq);
-    			console.table(logicBoardOne);
-    			// console.log("clicked!");
+    			// console.log(userSeq);
+    			// console.table(logicBoardOne);
+    			console.log("clicked!");
     			$(this).addClass("toggle"); // not happening
-    			// let that = $(this);
+    			let that = $(this);
     		 	window.setTimeout( () => {
-    		 		// console.log('this insideofOnClick -> ',$(this));
+    		 		console.log('this insideofOnClick -> ',$(this));
     				$(this).removeClass("toggle");
-    		 		// console.log('removed toggle');
-    		 		// console.log($(this));
+    		 		console.log('removed toggle');
+    		 		console.log($(this));
     			},500);
     		});
     		lvlOneBoard.append(lvlOneCell);
