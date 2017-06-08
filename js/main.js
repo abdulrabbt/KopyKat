@@ -12,6 +12,15 @@ jQuery(function() {
 	var logicSeq = []; // Logic sequence
 	var userSeq = []; // User sequence
 
+	// var dataBase = {    // WORK ON THIS IDEA
+	// 	logSeq:[1],
+	// 	userSeqq: [],
+	// 	function(){
+			
+	// 	}
+	// };
+
+
 
 	var logicBoardOne = [
         ["", ""],
@@ -35,14 +44,14 @@ jQuery(function() {
     		var lvlOneCell = $("<div>");
     		lvlOneCell.addClass("cell");
     		// lvlOneCell.css("background-color", 'rgb(' + red + ", " + green + ", " + blue + ")" ); // rgb(255, 0, 0)
-    		lvlOneCell.attr("id", "box" + counter);
+    		lvlOneCell.attr("id", + counter);
     		lvlOneCell.click(function(event){
-    			logicSeq.push(Math.floor(Math.random()*4));
-    			// console.log(logicSeq);
+    			logicSeq.push(Math.ceil(Math.random()*4));
+    			console.log("Logic: " + logicSeq) ; // LOG CURRENT LOGIC ARRAY
     			userSeq.push(event.target.id);
-    			// console.log(userSeq);
-    			// console.table(logicBoardOne);
-    			console.log("clicked!");
+    			console.log("User: " + userSeq); // LOG CURRENT USER ARRAY
+    			// console.table(logicBoardOne); // LOG TABLE
+    			// console.log("clicked!"); // LOG A CLICK
     			$(this).addClass("toggle"); // not happening
     			let that = $(this);
     		 	window.setTimeout( () => {
