@@ -19,15 +19,30 @@ jQuery(function() {
                     logicArray.push(randomNumber);
                 }
             }
-            
+
             fillLogic();
             console.log(logicArray);
 
             var flashOn = function(el1) {
                 $(el1).animate({
                     opacity: '1'
-                }, 1000);
+                }, 100);
             }
+
+            var userClick = function(){
+                activeCell = $("#" + event.target.id);
+                console.log(activeCell);
+                userArray.push(event.target.id);
+                console.log("Clicked: " + event.target.id)
+                console.log("User array: " + userArray);
+                activeCell.animate({
+                    opacity: '0'
+                }, 100, function(){setTimeout(flashOn(activeCell)), 50});
+
+
+            };
+
+            cells.click(userClick);
 
             
             var turn = logicArray.length;
@@ -37,13 +52,13 @@ jQuery(function() {
                 console.log(logicArray[c]);
                 activeCell.animate({
                     opacity: '0'
-                }, 100, function(){setTimeout(flashOn(activeCell)), 100});
+                }, 100, function(){setTimeout(flashOn(activeCell)), 50});
                 if (c === turn){
                     clearInterval(flashSeq);
                 };
                 c++;
 
-            }, 1500);
+            }, 500); // How long before the next flash, sum off all timeout's and animations have to be less than this value
 
 
 
