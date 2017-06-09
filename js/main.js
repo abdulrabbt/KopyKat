@@ -19,37 +19,33 @@ jQuery(function() {
                     logicArray.push(randomNumber);
                 }
             }
+            
             fillLogic();
             console.log(logicArray);
+
+            var flashOn = function(el1) {
+                $(el1).animate({
+                    opacity: '1'
+                }, 1000);
+            }
 
             
             var turn = logicArray.length;
             var c = 0;
             var flashSeq = setInterval(function(){
-                console.log('this is c: ' + c)
-                $('.active').animate({
-                    opacity: '1'
-                }, 1000);
-                $('.active').removeClass("active");
-                // console.log("Class active removed!!!!!")
-                $('.cell').eq(logicArray[c]).addClass('active');
-                $(".active").animate({
+                var activeCell = $('.cell').eq(logicArray[c])
+                console.log(logicArray[c]);
+                activeCell.animate({
                     opacity: '0'
-                }, 1000)
-                // console.log("Class active added!!!");
-                // console.log(logicArray[c]);
+                }, 100, function(){setTimeout(flashOn(activeCell)), 100});
                 if (c === turn){
-                    clearInterval(flashSeq)
-                   
+                    clearInterval(flashSeq);
                 };
                 c++;
 
-            }, 1000);
+            }, 1500);
 
-            // var flashOff = function(el1) {
-            //     console.log('flashing off for ' + el1)
-            //     $(el1).removeClass('toggle');
-            // }
+
 
             // var flashOn = function(el1) {
             //     console.log('flashing on for ' + el1)
