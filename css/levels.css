@@ -1,10 +1,14 @@
+body{
+    background-color: black;
+}
+
 #boardOne {
     display: flex;
     flex-wrap: wrap;
     width: 400px;
     height: 400px;
     position: relative;
-    background-color: white;
+/*    background-color: white;*/
     margin: 0 auto;
     margin-top: 200px;
     padding: 5px;
@@ -14,13 +18,11 @@
     display: inline-block;
     position: relative;
     margin: 0 auto;
-    /*    margin-right: 5px;*/
-    /*    padding: 5px;*/
     height: 150px;
     width: 150px;
     background-color: black;
- /*   transition: background-color 0.4s ease-in-out;*/
-    border: 1px solid black;
+/*    border: 1px solid black;*/
+    opacity: 0.3;
 }
 
 .row {
@@ -29,5 +31,21 @@
     background-color: white;
     display: inline-block;
     /*    border: 1px solid black;*/
+}
+
+[id="0"]{
+    background-color: red;
+}
+
+[id="1"]{
+    background-color: blue;
+}
+
+[id="2"]{
+    background-color: green;
+}
+
+[id="3"]{
+    background-color: yellow;
 }
 

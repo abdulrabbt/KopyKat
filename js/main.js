@@ -4,89 +4,118 @@ console.log("JS Linked!");
 jQuery(function() {
 
 
-            
 
 
-            var logicArray = [];
-            var userArray = [];
 
-            var cells = $(".cell");
-            console.log(cells);
+    var logicArray = [];
+    var userArray = [];
 
-            var fillLogic = function() {
-                for (var i = 0; i < 10; i++) {
-                    var randomNumber = Math.floor(Math.random() * 4);
-                    logicArray.push(randomNumber);
-                }
-            }
+    var currentTurn = 1;
 
-            fillLogic();
-            console.log(logicArray);
+    var cells = $(".cell");
+    console.log(cells);
 
-            var flashOn = function(el1) {
-                $(el1).animate({
-                    opacity: '1'
-                }, 100);
-            }
+    // Populate logic array with a random sequence
+    var fillLogic = function() {
+        for (var i = 0; i < 10; i++) {
+            var randomNumber = Math.floor(Math.random() * 4);
+            logicArray.push(randomNumber);
+        }
+    }
 
-            var userClick = function(){
-                activeCell = $("#" + event.target.id);
-                console.log(activeCell);
-                userArray.push(event.target.id);
-                console.log("Clicked: " + event.target.id)
-                console.log("User array: " + userArray);
-                activeCell.animate({
-                    opacity: '0'
-                }, 100, function(){setTimeout(flashOn(activeCell)), 50});
+    fillLogic();
+    console.log(logicArray);
 
 
+    // Function to flash a cell back on
+    var flashOn = function(el1) {
+        $(el1).animate({
+            opacity: '0.3'
+        }, 100);
+    }
+
+    // Flash cell on user click
+    var userClick = function() {
+        activeCell = $("#" + event.target.id);
+        console.log(activeCell);
+        userArray.push(event.target.id);
+        console.log("Clicked: " + event.target.id)
+        console.log("User array: " + userArray);
+        activeCell.animate({
+            opacity: '1'
+        }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
+
+
+    };
+
+    cells.click(userClick);
+
+    function displaySequenceToTurnCount() {
+        var turn = logicArray.length;
+        var c = 0;
+        var flashSeq = setInterval(function() {
+            var activeCell = $('.cell').eq(logicArray[c])
+            console.log(logicArray[c]);
+            activeCell.animate({
+                opacity: '1'
+            }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
+            if (c === turn) {
+                clearInterval(flashSeq);
             };
+            c++;
 
-            cells.click(userClick);
+        }, 500);
 
-            
-            var turn = logicArray.length;
-            var c = 0;
-            var flashSeq = setInterval(function(){
-                var activeCell = $('.cell').eq(logicArray[c])
-                console.log(logicArray[c]);
-                activeCell.animate({
-                    opacity: '0'
-                }, 100, function(){setTimeout(flashOn(activeCell)), 50});
-                if (c === turn){
-                    clearInterval(flashSeq);
-                };
-                c++;
-
-            }, 500); // How long before the next flash, sum off all timeout's and animations have to be less than this value
+    }
+    displaySequenceToTurnCount();
+    // How long before the next flash, sum off all timeout's and animations have to be less than this value
 
 
+    // var altTurn = function(){
+    //     var turn = 0;
+    //     for (var i = 0; i < logicArray.length; i++){
+    //         var flashSeq = setInterval(function(){
+    //             var activeCell = $('.cell').eq(logicArray[turn])
+    //             console.log(logicArray[turn]);
+    //             activeCell.animate({
+    //                 opacity: '1'
+    //             }, 100, function(){setTimeout(flashOn(activeCell)), 50});
+    //             if (turn === logicArray.length){
+    //                 clearInterval(flashSeq);
+    //             };
+    //             turn++;
+    //         }, 500);
+    //     }
 
-            // var flashOn = function(el1) {
-            //     console.log('flashing on for ' + el1)
-            //     $(el1).addClass('toggle');
-            //     setTimeout(function() {
-            //         flashOff(el1);
-            //     }, 500)
-            // }
-
-            
+    // };
+    // altTurn();
 
 
-            // var flashSequence = function() {
-            //     // for (var i = 0; i < logicArray.length; i++) {
-            //         // debugger
-            //         var currentIndex = i;
-            //         var currentValue = "#" + logicArray[i];
-            //         setTimeout(function() {
-            //             flashOn($(currentValue));
-            //             console.log($(currentValue));
-            //         },500 );
-            //     // };
-            // };
+    // var flashOn = function(el1) {
+    //     console.log('flashing on for ' + el1)
+    //     $(el1).addClass('toggle');
+    //     setTimeout(function() {
+    //         flashOff(el1);
+    //     }, 500)
+    // }
 
-            
-            // flashSequence();
+
+
+
+    // var flashSequence = function() {
+    //     // for (var i = 0; i < logicArray.length; i++) {
+    //         // debugger
+    //         var currentIndex = i;
+    //         var currentValue = "#" + logicArray[i];
+    //         setTimeout(function() {
+    //             flashOn($(currentValue));
+    //             console.log($(currentValue));
+    //         },500 );
+    //     // };
+    // };
+
+
+    // flashSequence();
 
 
 
@@ -153,7 +182,7 @@ jQuery(function() {
     //         console.log('removed toggle');
     //         flashSequence();
     //     }, 400);
-         
+
 
     // }
 
@@ -190,4 +219,3 @@ jQuery(function() {
 
 
 }); // jQuery End
-
