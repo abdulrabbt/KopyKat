@@ -41,6 +41,7 @@ jQuery(function() {
             opacity: '1'
         }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
         if (event.target.id == logicArray[logicArray.length-1]){
+            document.getElementById("chime").play(); // PLAY CHIME!
             userArray.push(event.target.id);
             console.log("Clicked: " + event.target.id);
             console.log("User array: " + userArray);
