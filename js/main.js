@@ -71,8 +71,6 @@ jQuery(function() {
             }, 500);
 
         }
-
-
     }
     displaySequenceToTurnCount();
     // How long before the next flash, sum off all timeout's and animations have to be less than this value
