@@ -1,4 +1,4 @@
-body{
+body {
     background-color: black;
 }
 
@@ -8,7 +8,7 @@ body{
     width: 400px;
     height: 400px;
     position: relative;
-/*    background-color: white;*/
+    /*    background-color: white;*/
     margin: 0 auto;
     margin-top: 200px;
     padding: 5px;
@@ -21,7 +21,7 @@ body{
     height: 150px;
     width: 150px;
     background-color: black;
-/*    border: 1px solid black;*/
+    /*    border: 1px solid black;*/
     opacity: 0.3;
 }
 
@@ -33,19 +33,18 @@ body{
     /*    border: 1px solid black;*/
 }
 
-[id="0"]{
+[id="0"] {
     background-color: red;
 }
 
-[id="1"]{
+[id="1"] {
     background-color: blue;
 }
 
-[id="2"]{
+[id="2"] {
     background-color: green;
 }
 
-[id="3"]{
+[id="3"] {
     background-color: yellow;
 }
-

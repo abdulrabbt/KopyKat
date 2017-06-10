@@ -40,15 +40,16 @@ jQuery(function() {
         activeCell.animate({ // animate click
             opacity: '1'
         }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
-        if (event.target.id == logicArray[logicArray.length-1]){
-            document.getElementById("chime").play(); // PLAY CHIME!
+        if (event.target.id == logicArray[logicArray.length - 1]) {
+            document.getElementById("rightChime").play(); // PLAY CORRECT CHIME!
             userArray.push(event.target.id);
             console.log("Clicked: " + event.target.id);
             console.log("User array: " + userArray);
             displaySequenceToTurnCount();
             fillLogic();
-        } else{
+        } else {
             console.log("did not match!!");
+            document.getElementById("wrongChime").play();
             // $("body").css("background-color", "white");
             // window.setTimeout(function(){
             //     $("body").css("background-color", "black");
@@ -59,32 +60,32 @@ jQuery(function() {
         }
 
 
-        
+
         console.log("logic array: " + logicArray);
     };
 
     // Applying event listener
-    cells.on("click",userClick);
+    cells.on("click", userClick);
 
     function displaySequenceToTurnCount() {
         console.log('logic array', logicArray);
-            var c = 0;
-            // timeout
-            var flashSeq = setInterval(function() {
-                var activeCell = $('.cell').eq(logicArray[c]) // returns element with index
-                console.log('la c', c);
-                activeCell.animate({
-                    opacity: '1'
-                }, 100, function() { setTimeout(flashOn(activeCell)), 10 });
-                c++;
-                if (c == logicArray.length) {
-                    clearInterval(flashSeq);
-                };
-                
+        var c = 0;
+        // timeout
+        var flashSeq = setInterval(function() {
+            var activeCell = $('.cell').eq(logicArray[c]) // returns element with index
+            console.log('la c', c);
+            activeCell.animate({
+                opacity: '1'
+            }, 100, function() { setTimeout(flashOn(activeCell)), 10 });
+            c++;
+            if (c == logicArray.length) {
+                clearInterval(flashSeq);
+            };
 
-            }, 500);
 
-        
+        }, 500);
+
+
 
     }
     displaySequenceToTurnCount();
