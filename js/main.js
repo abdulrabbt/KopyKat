@@ -7,8 +7,9 @@ jQuery(function() {
 
 
 
-    var logicArray = [];
+    var logicArray = [Math.floor(Math.random() * 4)];
     var userArray = [];
+    console.log(logicArray);
 
     var currentTurn = 1;
 
@@ -17,13 +18,11 @@ jQuery(function() {
 
     // Populate logic array with a random sequence
     var fillLogic = function() {
-        for (var i = 0; i < 10; i++) {
-            var randomNumber = Math.floor(Math.random() * 4);
-            logicArray.push(randomNumber);
-        }
+        var randomNumber = Math.floor(Math.random() * 4);
+        logicArray.push(randomNumber);
     }
 
-    fillLogic();
+    // fillLogic();
     console.log(logicArray);
 
 
@@ -44,6 +43,10 @@ jQuery(function() {
         activeCell.animate({
             opacity: '1'
         }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
+        
+        fillLogic();
+        console.log("logic array: " + logicArray);
+        displaySequenceToTurnCount();
 
 
     };
@@ -51,20 +54,24 @@ jQuery(function() {
     cells.click(userClick);
 
     function displaySequenceToTurnCount() {
-        var turn = logicArray.length;
-        var c = 0;
-        var flashSeq = setInterval(function() {
-            var activeCell = $('.cell').eq(logicArray[c])
-            console.log(logicArray[c]);
-            activeCell.animate({
-                opacity: '1'
-            }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
-            if (c === turn) {
-                clearInterval(flashSeq);
-            };
-            c++;
+        for (var i = 0; i < currentTurn; i++) {
+            var turn = logicArray[i]; // length of turn
+            var c = 0; // counter
+            var flashSeq = setInterval(function() {
+                var activeCell = $('.cell').eq(logicArray[c])
+                console.log(logicArray[c]);
+                activeCell.animate({
+                    opacity: '1'
+                }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
+                if (c === turn) {
+                    clearInterval(flashSeq);
+                };
+                c++;
 
-        }, 500);
+            }, 500);
+
+        }
+
 
     }
     displaySequenceToTurnCount();
