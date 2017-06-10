@@ -42,7 +42,7 @@ jQuery(function() {
         }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
         if (event.target.id == logicArray[logicArray.length-1]){
             userArray.push(event.target.id);
-            console.log("Clicked: " + event.target.id)
+            console.log("Clicked: " + event.target.id);
             console.log("User array: " + userArray);
             displaySequenceToTurnCount();
             fillLogic();
@@ -66,23 +66,30 @@ jQuery(function() {
     cells.on("click",userClick);
 
     function displaySequenceToTurnCount() {
-        for (var i = 0; i < currentTurn; i++) {
-            var turn = logicArray[i]; // length of turn
-            var c = 0; // counter
+        console.log('logic array', logicArray);
+        // debugger;
+        // for (var i = 0; i < logicArray.length; i++) {
+            // var turn = logicArray[i]; // length of turn 0
+            // console.log('value -> ', logicArray[i]);
+             // counter
+            var c = 0;
+            // timeout
             var flashSeq = setInterval(function() {
                 var activeCell = $('.cell').eq(logicArray[c])
-                console.log(logicArray[c]);
+                console.log('la c', c);
                 activeCell.animate({
                     opacity: '1'
-                }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
-                if (c === turn) {
+                }, 100, function() { setTimeout(flashOn(activeCell)), 10 });
+                c++;
+                if (c == logicArray.length) {
                     clearInterval(flashSeq);
                 };
-                c++;
+                
 
             }, 500);
 
-        }
+        // }
+
     }
     displaySequenceToTurnCount();
     // How long before the next flash, sum off all timeout's and animations have to be less than this value
