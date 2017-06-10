@@ -35,23 +35,35 @@ jQuery(function() {
 
     // Flash cell on user click
     var userClick = function() {
-        activeCell = $("#" + event.target.id);
+        var activeCell = $("#" + event.target.id);
         console.log(activeCell);
-        userArray.push(event.target.id);
-        console.log("Clicked: " + event.target.id)
-        console.log("User array: " + userArray);
-        activeCell.animate({
+        activeCell.animate({ // animate click
             opacity: '1'
         }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
+        if (event.target.id == logicArray[logicArray.length-1]){
+            userArray.push(event.target.id);
+            console.log("Clicked: " + event.target.id)
+            console.log("User array: " + userArray);
+            displaySequenceToTurnCount();
+            fillLogic();
+        } else{
+            console.log("did not match!!");
+            // $("body").css("background-color", "white");
+            // window.setTimeout(function(){
+            //     $("body").css("background-color", "black");
+            // }, 100);
+            // $("cells").off("click", userClick());
+            // ^^^^^^^ THIS IS NOT WORKING AND WILL CAUSE AN INFINITE LOOP!!
+
+        }
+
+
         
-        fillLogic();
         console.log("logic array: " + logicArray);
-        displaySequenceToTurnCount();
-
-
     };
 
-    cells.click(userClick);
+    // Applying event listener
+    cells.on("click",userClick);
 
     function displaySequenceToTurnCount() {
         for (var i = 0; i < currentTurn; i++) {
