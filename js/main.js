@@ -13,6 +13,24 @@ jQuery(function() {
 
     // -----------------------> INSTRUCTIONS MODAL <------------------------- //
 
+        // var modalButton = $(".modalButton");
+
+        // modalButton.on("click", function(){
+        //     var how = $("<div>");
+        //     how.addClass("modalClass");
+        //     how.text("Text");
+        //     how.css("display", "none");
+
+        //     var close = $("button");
+        //     close.text("close");
+        //     close.on("click", function(){
+        //         how.hide();
+        //     });
+
+        //     how.append(close);
+        //     container.append(how);
+        // })
+
 
 
 
@@ -64,7 +82,7 @@ jQuery(function() {
 
             // SHOW HIGH SCORE 
             var showHighScore = function() {
-
+                var highScore = 0;
                 if (score > highScore) {
                     var highScore = score;
                 }
