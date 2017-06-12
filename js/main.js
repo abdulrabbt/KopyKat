@@ -10,10 +10,9 @@ jQuery(function() {
     var score = 0;
 
     var cells = $(".cell");
-    // console.log(cells);
 
 
-    // START OF EASY MODE
+    // ------------------------> START OF EASY MODE <------------------------ //
     $("#easy").one("click", function() {
             $("#medium").hide();
             $("#hard").hide();
@@ -135,7 +134,7 @@ jQuery(function() {
         }) // END OF EASY MODE
 
 
-    // START OF MEDIUM MODE
+    // ------------------------> START OF MEDIUM MODE <------------------------ //
     $("#medium").one("click", function() {
             $("#easy").hide();
             $("#hard").hide();
@@ -254,8 +253,11 @@ jQuery(function() {
         }) // END OF MEDIUM MODE
 
 
-    // START OF HARD MODE
+    // ------------------------> START OF HARD MODE <------------------------ //
+
     $("#hard").one("click", function() {
+
+            cells.css("backgroundColor", "white")
             $("#easy").hide();
             $("#medium").hide();
 
@@ -271,7 +273,7 @@ jQuery(function() {
             var flashOn = function(el1) {
                 $(el1).animate({
                     opacity: '0.3'
-                }, 100);
+                }, 50);
             }
 
             // Check for wrong answer
@@ -335,7 +337,7 @@ jQuery(function() {
                 // console.log(activeCell);
                 activeCell.animate({ // animate click
                     opacity: '1'
-                }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
+                }, 50, function() { setTimeout(flashOn(activeCell)), 50 });
                 userArray.push(parseInt(event.target.id));
 
                 if (userArray.length == logicArray.length) {
