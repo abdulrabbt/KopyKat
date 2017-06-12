@@ -50,10 +50,15 @@ body {
 
 button {
     display: inline-block;
+    border-radius: 0%;
+    background-color: white;
+    border-style: none;
+    margin: 2px;
+    font-family: 'Inconsolata', monospace;
 }
 
 .buttons{
-    width: 100px;
+    width: 50px;
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -61,11 +66,11 @@ button {
 .score {
     margin-top: 10px;
     color: white;
+    font-family: 'Inconsolata', monospace;
 }
 
 #easy {
     display: show;
-    margin: 0 auto;
 }
 
 #medium {
@@ -78,6 +83,7 @@ button {
 
 span{
     color: white;
+    font-family: 'Inconsolata', monospace;
 }
 
 

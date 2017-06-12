@@ -13,23 +13,23 @@ jQuery(function() {
 
     // -----------------------> INSTRUCTIONS MODAL <------------------------- //
 
-        // var modalButton = $(".modalButton");
+    // var modalButton = $(".modalButton");
 
-        // modalButton.on("click", function(){
-        //     var how = $("<div>");
-        //     how.addClass("modalClass");
-        //     how.text("Text");
-        //     how.css("display", "none");
+    // modalButton.on("click", function(){
+    //     var how = $("<div>");
+    //     how.addClass("modalClass");
+    //     how.text("Text");
+    //     how.css("display", "none");
 
-        //     var close = $("button");
-        //     close.text("close");
-        //     close.on("click", function(){
-        //         how.hide();
-        //     });
+    //     var close = $("button");
+    //     close.text("close");
+    //     close.on("click", function(){
+    //         how.hide();
+    //     });
 
-        //     how.append(close);
-        //     container.append(how);
-        // })
+    //     how.append(close);
+    //     container.append(how);
+    // })
 
 
 
@@ -41,7 +41,7 @@ jQuery(function() {
             $("#medium").hide();
             $("#hard").hide();
 
-            $('<p>Get Ready...</p>').css("color", "white").appendTo('#getReady');
+            $('<p>Get Ready...</p>').css("color", "white").css("font-family", "font-family: 'Inconsolata', monospace;").appendTo('#getReady');
 
             setTimeout(function() {
                 $("#getReady").hide()
@@ -70,6 +70,14 @@ jQuery(function() {
                 window.setTimeout(function() {
                     $("body").css("background-color", "black");
                 }, 100);
+
+                // Retry button
+                var retryButton = $("button");
+                retryButton.text("Retry");
+                retryButton.click(function(){
+                    location.reload(true);
+                });
+
             }
 
             // SHOW CURRENT SCORE
@@ -78,17 +86,6 @@ jQuery(function() {
                 console.log("Score: " + score);
                 $(".scoreNumber").empty();
                 $(".scoreNumber").append(score)
-            }
-
-            // SHOW HIGH SCORE 
-            var showHighScore = function() {
-                var highScore = 0;
-                if (score > highScore) {
-                    var highScore = score;
-                }
-                $(".highScoreNumber").empty();
-                $(".highScoreNumber").append(highScore);
-
             }
 
 
@@ -113,9 +110,6 @@ jQuery(function() {
                     displaySequenceToTurnCount()
                 }, 500);
                 showScore();
-                showHighScore();
-
-
 
             }
 
@@ -171,7 +165,7 @@ jQuery(function() {
     // ------------------------> START OF MEDIUM MODE <------------------------ //
     $("#medium").one("click", function() {
 
-            $('<p>Get Ready...</p>').css("color", "white").appendTo('#getReady');
+            $('<p>Get Ready...</p>').css("color", "white").css("font-family", "font-family: 'Inconsolata', monospace;").appendTo('#getReady');
 
             setTimeout(function() {
                 $("#getReady").hide()
@@ -192,7 +186,7 @@ jQuery(function() {
             var flashOn = function(el1) {
                 $(el1).animate({
                     opacity: '0.3'
-                }, 100);
+                }, 50);
             }
 
             // Check for wrong answer
@@ -202,7 +196,14 @@ jQuery(function() {
                 $("body").css("background-color", "white");
                 window.setTimeout(function() {
                     $("body").css("background-color", "black");
-                }, 100);
+                }, 50);
+
+                // Retry button
+                var retryButton = $("button");
+                retryButton.text("Retry");
+                retryButton.click(function(){
+                    location.reload(true);
+                });
             }
 
             // SHOW CURRENT SCORE
@@ -211,17 +212,6 @@ jQuery(function() {
                 console.log("Score: " + score);
                 $(".scoreNumber").empty();
                 $(".scoreNumber").append(score)
-            }
-
-            // SHOW HIGH SCORE 
-            var showHighScore = function() {
-                var highScore = 0;
-                if (score > highScore) {
-                    highScore = score;
-                }
-                $(".highScoreNumber").empty();
-                $(".highScoreNumber").append(highScore);
-
             }
 
 
@@ -244,9 +234,8 @@ jQuery(function() {
                 fillLogic();
                 setTimeout(function() {
                     displaySequenceToTurnCount()
-                }, 1000);
+                }, 500);
                 showScore();
-                showHighScore();
 
             }
 
@@ -259,7 +248,7 @@ jQuery(function() {
                 // console.log(activeCell);
                 activeCell.animate({ // animate click
                     opacity: '1'
-                }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
+                }, 50, function() { setTimeout(flashOn(activeCell)), 50 });
                 userArray.push(parseInt(event.target.id));
 
                 if (userArray.length == logicArray.length) {
@@ -303,7 +292,7 @@ jQuery(function() {
     $("#hard").one("click", function() {
 
 
-            $('<p>Get Ready...</p>').css("color", "white").appendTo('#getReady');
+            $('<p>Get Ready...</p>').css("color", "white").css("font-family", "font-family: 'Inconsolata', monospace;").appendTo('#getReady');
 
             setTimeout(function() {
                 $("#getReady").hide()
@@ -329,6 +318,8 @@ jQuery(function() {
                 $(el1).animate({
                     opacity: '0.3'
                 }, 50);
+
+                el1.css('background-image', "none");
             }
 
             // Check for wrong answer
@@ -336,9 +327,20 @@ jQuery(function() {
                 document.getElementById("wrongChime").play(); // play wrong chime
                 console.log("Chime: wrong");
                 $("body").css("background-color", "white");
+                $("body").css('background-image', "url(' ./images/felix_face.png ')");
+                $("body").css('background-size', "cover");
+                $("body").css('background-repeat', "no-repeat");
                 window.setTimeout(function() {
                     $("body").css("background-color", "black");
+                    $("body").css('background-image', "none");
                 }, 100);
+
+                // Retry button
+                var retryButton = $("button");
+                retryButton.text("Retry");
+                retryButton.click(function(){
+                    location.reload(true);
+                });
             }
 
             // SHOW CURRENT SCORE
@@ -348,18 +350,6 @@ jQuery(function() {
                 $(".scoreNumber").empty();
                 $(".scoreNumber").append(score)
             }
-
-            // SHOW HIGH SCORE 
-            var showHighScore = function() {
-                var highScore = 0;
-                if (score > highScore) {
-                    highScore = score;
-                }
-                $(".highScoreNumber").empty();
-                $(".highScoreNumber").append(highScore);
-
-            }
-
 
             var checkSeq = function() {
                 console.log('checking sequence')
@@ -380,9 +370,8 @@ jQuery(function() {
                 fillLogic();
                 setTimeout(function() {
                     displaySequenceToTurnCount()
-                }, 1000);
+                }, 500);
                 showScore();
-                showHighScore();
             }
 
 
@@ -415,6 +404,9 @@ jQuery(function() {
                     activeCell.animate({
                         opacity: '1'
                     }, 100, function() { setTimeout(flashOn(activeCell)), 10 });
+                    activeCell.css('background-image', "url(' ./images/felix_face.png ')");
+                    activeCell.css('background-size', "cover");
+                    activeCell.css('background-repeat', "no-repeat");
                     c++;
                     if (c == logicArray.length) {
                         clearInterval(flashSeq);
