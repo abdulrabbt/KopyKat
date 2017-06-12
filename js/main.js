@@ -11,6 +11,9 @@ jQuery(function() {
 
     var cells = $(".cell");
 
+    // -----------------------> INSTRUCTIONS MODAL <------------------------- //
+
+
 
 
 
@@ -19,6 +22,12 @@ jQuery(function() {
     $("#easy").one("click", function() {
             $("#medium").hide();
             $("#hard").hide();
+
+            $('<p>Get Ready...</p>').css("color", "white").appendTo('#getReady');
+
+            setTimeout(function() {
+                $("#getReady").hide()
+            }, 1000);
 
             var startEasy = function() {}
                 // Populate logic array with a random sequence
@@ -55,7 +64,7 @@ jQuery(function() {
 
             // SHOW HIGH SCORE 
             var showHighScore = function() {
-                
+
                 if (score > highScore) {
                     var highScore = score;
                 }
@@ -82,7 +91,9 @@ jQuery(function() {
                 document.getElementById("rightChime").play(); // PLAY CORRECT CHIME!
                 userArray = [];
                 fillLogic();
-                displaySequenceToTurnCount();
+                setTimeout(function() {
+                    displaySequenceToTurnCount()
+                }, 500);
                 showScore();
                 showHighScore();
 
@@ -132,13 +143,22 @@ jQuery(function() {
 
 
             }
-            displaySequenceToTurnCount();
+            setTimeout(function() {
+                displaySequenceToTurnCount()
+            }, 1000);
             cells.on("click", userClick);
         }) // END OF EASY MODE
 
 
     // ------------------------> START OF MEDIUM MODE <------------------------ //
     $("#medium").one("click", function() {
+
+            $('<p>Get Ready...</p>').css("color", "white").appendTo('#getReady');
+
+            setTimeout(function() {
+                $("#getReady").hide()
+            }, 1500);
+
             $("#easy").hide();
             $("#hard").hide();
 
@@ -204,7 +224,9 @@ jQuery(function() {
                 document.getElementById("rightChime").play(); // PLAY CORRECT CHIME!
                 userArray = [];
                 fillLogic();
-                displaySequenceToTurnCount();
+                setTimeout(function() {
+                    displaySequenceToTurnCount()
+                }, 1000);
                 showScore();
                 showHighScore();
 
@@ -251,7 +273,9 @@ jQuery(function() {
 
 
             }
-            displaySequenceToTurnCount();
+            setTimeout(function() {
+                displaySequenceToTurnCount()
+            }, 1500);
             cells.on("click", userClick);
         }) // END OF MEDIUM MODE
 
@@ -259,6 +283,16 @@ jQuery(function() {
     // ------------------------> START OF HARD MODE <------------------------ //
 
     $("#hard").one("click", function() {
+
+
+            $('<p>Get Ready...</p>').css("color", "white").appendTo('#getReady');
+
+            setTimeout(function() {
+                $("#getReady").hide()
+            }, 1500);
+
+
+
 
             cells.css("backgroundColor", "white")
             $("#easy").hide();
@@ -326,7 +360,9 @@ jQuery(function() {
                 document.getElementById("rightChime").play(); // PLAY CORRECT CHIME!
                 userArray = [];
                 fillLogic();
-                displaySequenceToTurnCount();
+                setTimeout(function() {
+                    displaySequenceToTurnCount()
+                }, 1000);
                 showScore();
                 showHighScore();
             }
@@ -372,7 +408,9 @@ jQuery(function() {
 
 
             }
-            displaySequenceToTurnCount();
+            setTimeout(function() {
+                displaySequenceToTurnCount()
+            }, 1500);
             cells.on("click", userClick);
         }) // END OF HARD MODE
 
