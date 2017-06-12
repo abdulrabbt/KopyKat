@@ -4,9 +4,6 @@ console.log("JS Linked!");
 jQuery(function() {
 
 
-
-
-
     var logicArray = [Math.floor(Math.random() * 4)];
     var userArray = [];
     console.log(logicArray);
@@ -42,6 +39,7 @@ jQuery(function() {
         }, 100, function() { setTimeout(flashOn(activeCell)), 50 });
         if (event.target.id == logicArray[logicArray.length - 1]) {
             document.getElementById("rightChime").play(); // PLAY CORRECT CHIME!
+            console.log("Chime: correct");
             userArray.push(event.target.id);
             console.log("Clicked: " + event.target.id);
             console.log("User array: " + userArray);
@@ -50,6 +48,7 @@ jQuery(function() {
         } else {
             console.log("did not match!!");
             document.getElementById("wrongChime").play();
+            console.log("Chime: wrong");
             // $("body").css("background-color", "white");
             // window.setTimeout(function(){
             //     $("body").css("background-color", "black");
@@ -59,13 +58,11 @@ jQuery(function() {
 
         }
 
-
-
         console.log("logic array: " + logicArray);
     };
 
     // Applying event listener
-    cells.on("click", userClick);
+    
 
     function displaySequenceToTurnCount() {
         console.log('logic array', logicArray);
@@ -89,6 +86,7 @@ jQuery(function() {
 
     }
     displaySequenceToTurnCount();
+    cells.on("click", userClick);
     // How long before the next flash, sum off all timeout's and animations have to be less than this value
 
 }); // jQuery End
