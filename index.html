@@ -6,7 +6,7 @@
     <title>KopyKat</title>
     <link rel="stylesheet" href="./css/main.css">
     <script type="text/javascript" src="./js/jquery-1.11.3.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/home.js"></script>
     <link rel='shortcut icon' type='image/x-icon' href='./images/felix_face.png'>
 </head>
 
@@ -17,7 +17,17 @@
     <main>
         <img id="happy" src="./images/Felix_the_Cat.png" alt="">
         <a href="game.html">Click here to play!</a>
+        <button id="modalButton">Instructions</button>
         <img id="mad" src="./images/felix_mad.svg" alt="">
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Instructions</h1>
+                <p> The object of this game is simple. Choose a difficulty and repeat the sequence. Easy mode is relaxing, while Medium mode is a bit faster. If you're feeling tough, choose Hard mode and try to keep up! Be careful, Hard mode has a few changes to throw you off your game!</p>
+                <p>Enjoy!</p>
+            </div>
+        </div>
     </main>
     <footer>
         <p>Made with <span id="heart">&#9829;</span> by Logan Morales</p>
