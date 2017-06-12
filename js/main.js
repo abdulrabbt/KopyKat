@@ -74,7 +74,7 @@ jQuery(function() {
                 // Retry button
                 var retryButton = $("button");
                 retryButton.text("Retry");
-                retryButton.click(function(){
+                retryButton.click(function() {
                     location.reload(true);
                 });
 
@@ -201,7 +201,7 @@ jQuery(function() {
                 // Retry button
                 var retryButton = $("button");
                 retryButton.text("Retry");
-                retryButton.click(function(){
+                retryButton.click(function() {
                     location.reload(true);
                 });
             }
@@ -333,13 +333,15 @@ jQuery(function() {
                 window.setTimeout(function() {
                     $("body").css("background-color", "black");
                     $("body").css('background-image', "none");
+                    $("body").css('background-repeat', "no-repeat");
+                    $("body").css('background-size', "cover");
                 }, 100);
 
                 // Retry button
                 var retryButton = $("button");
                 retryButton.text("Retry");
-                retryButton.click(function(){
-                    location.reload(true);
+                retryButton.click(function() {
+                    location.reload(true); // Forced reload
                 });
             }
 
