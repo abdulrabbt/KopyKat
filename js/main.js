@@ -12,6 +12,9 @@ jQuery(function() {
     var cells = $(".cell");
 
 
+
+
+
     // ------------------------> START OF EASY MODE <------------------------ //
     $("#easy").one("click", function() {
             $("#medium").hide();
@@ -52,9 +55,9 @@ jQuery(function() {
 
             // SHOW HIGH SCORE 
             var showHighScore = function() {
-                var highScore = 0;
+                
                 if (score > highScore) {
-                    highScore = score;
+                    var highScore = score;
                 }
                 $(".highScoreNumber").empty();
                 $(".highScoreNumber").append(highScore);
