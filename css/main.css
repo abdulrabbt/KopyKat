@@ -92,6 +92,15 @@ footer {
     width: 100%;
     height: 100%;
     overflow: auto;
+    transition: all .5s ease;
+}
+
+.modal.hide{
+    opacity: 0;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    z-index: -2;
 }
 
 .modal-content {
@@ -105,6 +114,9 @@ footer {
     font-size: 30px;
     text-align: center;
     border: 4px solid white;
+   /* transform: translateY(0%);*/
+            
+
 }
 
 .close {
@@ -148,6 +160,7 @@ footer {
         float: none;
     }
     button {
+        font-size: 1em;
         padding-top: 5px;
         display: inline-block;
     }
