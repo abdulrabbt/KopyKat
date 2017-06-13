@@ -24,6 +24,7 @@ I started this project by designing minimilistic wireframes to guide myself thro
 * Responsive home page
 * Link to game page
 * Instructions button triggers modal with clear game instructions
+* No one game is the same! Sequence randomizes in real time
 * Easy, Medium and Hard difficulties - User picks
 * Hard mode has built in tricks to distract user
 * Score tracker
